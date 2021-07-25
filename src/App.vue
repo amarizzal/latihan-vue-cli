@@ -1,15 +1,39 @@
 <template>
+<div>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+  <header>
+    <h1>Mobile Legend</h1>
+  </header>
+
+  <main>
+    <img :src="gambar" alt="">
+    <h3>{{hero.nama}}</h3>
+  </main>
+
+  <footer>
+    copyright 2021 - Rizal Ammar
+  </footer>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data: function() {
+    return {
+      hero: {
+        nama: 'Aurora',
+        type: 'Mage',
+        gambar: 'aurora.jpg'
+      }
+    }
+  },
+  computed: {
+    gambar: function() {
+      return require("./assets/hero" + this.hero.gambar);
+    }
   }
 }
 </script>
