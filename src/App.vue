@@ -4,15 +4,17 @@
 
   <header>
     <h1>Mobile Legend</h1>
+    <p><button @click="gantiHero">Ganti</button></p>
   </header>
 
   <main>
     <img :src="gambar" alt="">
     <h3>{{hero.nama}}</h3>
+    <p><em>{{hero.type}}</em></p>
   </main>
 
   <footer>
-    copyright 2021 - Rizal Ammar
+    Belajar Vue CLI&copy; - 2021 - Rizal Ammar
   </footer>
 </div>
 </template>
@@ -32,7 +34,14 @@ export default {
   },
   computed: {
     gambar: function() {
-      return require("./assets/hero" + this.hero.gambar);
+      return require("./assets/hero/" + this.hero.gambar);
+    }
+  },
+  methods: {
+    gantiHero: function() {
+      this.hero.nama = "Zilong";
+      this.hero.type = "Fighter";
+      this.hero.gambar = "zilong.jpg";
     }
   }
 }
