@@ -16,3 +16,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    p {
+        color: pink;
+    }
+</style>
