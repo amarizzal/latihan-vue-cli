@@ -3,7 +3,7 @@
 
   <Header @ganti-hero="gantiHero"></Header>
 
-  <Hero :hero="hero"></Hero>
+  <Hero v-for="(item, key) of hero" :hero="item" :key="key"></Hero>
 
   <Footer></Footer>
   
@@ -24,12 +24,17 @@ export default {
   },
   data: function() {
     return {
-      hero: {
+      hero: [{
         nama: 'Aurora',
         type: 'Mage',
         gambar: 'aurora.jpg'
+      },
+      {
+        nama: 'Akai',
+        type: 'Tank',
+        gambar: 'akai.jpg'
       }
-    }
+      ]}
   },
   methods: {
     gantiHero: function() {
