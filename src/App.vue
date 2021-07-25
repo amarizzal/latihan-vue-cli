@@ -1,11 +1,7 @@
 <template>
 <div>
-  <img alt="Vue logo" src="./assets/logo.png">
 
-  <header>
-    <h1>Mobile Legend</h1>
-    <p><button @click="gantiHero">Ganti</button></p>
-  </header>
+  <Header></Header>
 
   <main>
     <img :src="gambar" alt="">
@@ -13,16 +9,21 @@
     <p><em>{{hero.type}}</em></p>
   </main>
 
-  <footer>
-    Belajar Vue CLI&copy; - 2021 - Rizal Ammar
-  </footer>
+  <Footer></Footer>
+  
 </div>
 </template>
 
 <script>
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
+  components: {
+    Header,
+    Footer
+  },
   data: function() {
     return {
       hero: {
