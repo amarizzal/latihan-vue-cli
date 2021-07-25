@@ -1,9 +1,14 @@
 <template>
 <div>
 
-  <Header @ganti-hero="gantiHero"></Header>
+  <Header @random-hero="randomHero" @reset-hero="resetHero"></Header>
 
-  <Hero v-for="(item, key) of hero" :hero="item" :key="key"></Hero>
+  <article v-if="!selectedHero">
+    <Hero v-for="(item, key) of hero" :hero="item" :key="key"></Hero>
+  </article>
+  <article v-else>
+    <Hero :hero="selectedHero" :key="0"></Hero>
+  </article>
 
   <Footer></Footer>
   
@@ -33,14 +38,30 @@ export default {
         nama: 'Akai',
         type: 'Tank',
         gambar: 'akai.jpg'
-      }
-      ]}
-  },
+      },
+      {
+        nama: 'Zilong',
+        type: 'Fighter',
+        gambar: 'zilong.jpg'
+      },
+      {
+        nama: 'Layla',
+        type: 'Marksman',
+        gambar: 'layla.jpg'
+      },
+      {
+        nama: 'Gatotkaca',
+        type: 'Tank',
+        gambar: 'gatotkaca.png'
+      }],
+      selectedHero: ''
+  }},
   methods: {
-    gantiHero: function() {
-      this.hero.nama = "Zilong";
-      this.hero.type = "Fighter";
-      this.hero.gambar = "zilong.jpg";
+    randomHero: function() {
+      this.selectedHero = this.hero[Math.floor(Math.random() * this.hero.length)];
+    },
+    resetHero: function() {
+      this.selectedHero = '';
     }
   }
 }
@@ -54,5 +75,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  margin: 10px;
 }
 </style>

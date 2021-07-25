@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main :key="key">
         <img :src="gambar" alt="">
         <h3>{{hero.nama}}</h3>
         <p><em>{{hero.type}}</em></p>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    props: ['hero'],
+    props: ['hero', 'key'],
     computed: {
         gambar: function() {
         return require("../assets/hero/" + this.hero.gambar);
