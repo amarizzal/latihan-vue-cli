@@ -1,7 +1,7 @@
 <template>
 <div>
 
-  <Header></Header>
+  <Header @ganti-hero="gantiHero"></Header>
 
   <Hero :hero="hero"></Hero>
 
